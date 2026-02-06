@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
+import { getAppLoginPermalink } from '~/utils/permalinks';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
@@ -23,9 +23,9 @@ const metadata = {
             {
                 variant: 'primary',
                 text: 'Get template',
-                href: 'https://github.com/arthelokyo/astrowind',
+                href: getAppLoginPermalink(),
                 target: '_blank',
-                icon: 'tabler:download',
+                icon: 'lucide:arrow-right',
             },
             { text: 'Learn more', href: '#features' },
         ]}
