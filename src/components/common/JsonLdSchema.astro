@@ -1,0 +1,27 @@
+---
+import { SITE } from 'astrowind:config';
+import { FAVICON_URL } from '~/utils/permalinks';
+
+const orgSchema = {
+    "@type": "Organization",
+    "name": SITE.name,
+    "url": `${SITE.site}/`,
+    "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE.site}${FAVICON_URL}`
+    },
+    // "sameAs": [
+    //     "https://x.com/brand",
+    //     "https://www.linkedin.com/company/brand"
+    // ]
+};
+
+// Serialize the schema to a JSON-LD string
+const graphSchema = {
+    "@context": "https://schema.org",
+    "@graph": [orgSchema]
+}
+const jsonLd = JSON.stringify(graphSchema, null, 2);
+---
+
+<script is:inline type="application/ld+json" set:html={jsonLd} />
