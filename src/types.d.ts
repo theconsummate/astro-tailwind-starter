@@ -278,7 +278,7 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
     callToAction?: CallToAction;
 }
 
-export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+export interface Contact extends Omit<Headline, 'classes'>, Form, Widget { }
 
 // json ld types
 export interface HrefItem {
@@ -307,4 +307,18 @@ export interface JsonLdBlogListSchema {
         unsplash: string;
         alt: string;
     }
+}
+
+// custom components
+export interface CompareGrid extends Omit<Headline, 'classes'>, Widget {
+    categoryTool: {
+        headline: string;
+        items: Array<Item>;
+    };
+    thisTool: {
+        headline: string;
+        items: Array<Item>;
+    };
+    categoryToolClass?: string;
+    thisToolClass?: string;
 }
