@@ -173,6 +173,7 @@ import { UI } from 'astrowind:config';
     elements: null,
 
     start() {
+      this.animationCounter = 0;
       const selectors = [
         '[class*=" intersect:"]',
         '[class*=":intersect:"]',
@@ -186,6 +187,7 @@ import { UI } from 'astrowind:config';
       this.elements = Array.from(document.querySelectorAll(selectors.join(',')));
 
       const getThreshold = (element) => {
+        if (element.classList.contains('intersect-none')) return 0;
         if (element.classList.contains('intersect-full')) return 0.99;
         if (element.classList.contains('intersect-half')) return 0.5;
         if (element.classList.contains('intersect-quarter')) return 0.25;

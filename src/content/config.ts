@@ -18,13 +18,13 @@ const metadataDefinition = () => z.object({
         url: z.string().optional(),
         siteName: z.string().optional(),
         images: z
-        .array(
-            z.object({
-            url: z.string(),
-            width: z.number().optional(),
-            height: z.number().optional(),
-            })
-        ).optional(),
+            .array(
+                z.object({
+                    url: z.string(),
+                    width: z.number().optional(),
+                    height: z.number().optional(),
+                })
+            ).optional(),
         locale: z.string().optional(),
         type: z.string().optional(),
     }).optional(),
